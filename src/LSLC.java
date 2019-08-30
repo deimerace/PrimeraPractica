@@ -1,3 +1,4 @@
+//Clase Lista Simplemente Ligada Circular
 public class LSLC {
     //Privado
     private nodoSimple primero;
