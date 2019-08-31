@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 //Clase Lista Simplemente Ligada Circular
 public class LSLC {
     //Privado
@@ -12,7 +14,7 @@ public class LSLC {
     }
 
     public boolean esVacia(){
-        return primero == ultimo;
+        return primero == null;
     }
 
     public nodoSimple primerNodo(){
@@ -23,20 +25,19 @@ public class LSLC {
         return ultimo;
     }
 
-    public nodoSimple anterior(nodoSimple x){
-
-
-    }
-
-    public boolean finDeReocrrido(nodoSimple x){
-        return x == null;
+//TODO colocar nodoSimple, lo puse en void para que el programa no mandara error y poder ejecutarlo
+   /*TODO Kai
+   *public void anterior(nodoSimple x){ }
+   */
+    public boolean finDeRecorrido(nodoSimple x){
+        return x == primero;
     }
 
     public void recorre(){
         nodoSimple p;
-        p = primero;
-        while (!finDeReocrrido(p)){
-            System.print.outln(p.retornaDato());
+        p = primerNodo();
+        while (!finDeRecorrido(p));{
+            JOptionPane.showMessageDialog(null,p.retornaDato());
             p=p.retornaLiga();
         }
     }
@@ -45,8 +46,8 @@ public class LSLC {
         nodoSimple y;
         nodoSimple p;
         p = primerNodo();
-        y = anterior(p);
-        while ((!finDeReocrrido(p)) && parse.Int(p.retornaDato()) < parse.Int(d)){
+        y = ultimoNodo();
+        while ((!finDeRecorrido(p)) && (p.retornaDato().equals(d))){
             y = p;
             p = p.retornaLiga();
         }
@@ -59,13 +60,50 @@ public class LSLC {
         conectar(x, y);
     }
 
-    public void conectar(nodoSimple x, nodoSimple y){
-
+    public void conectar(nodoSimple X, nodoSimple Y){
+        if(Y!=null){
+            X.asignaLiga(Y.retornaLiga());
+            Y.asignaLiga(X);
+            if (Y==ultimo){
+                ultimo=X;
+            }
+            else{
+                X.asignaLiga(primero);
+                if (primero==null){
+                    ultimo=X;
+                }
+                primero=X;
+            }
+        }
+    }
+    nodoSimple buscarDato(Object d) {
+        nodoSimple x;
+        x = primerNodo();;
+        while (!finDeRecorrido(x) && (x.retornaDato()!=d)) {
+            x = x.retornaLiga();
+        }
+         return (x);
+    }
+    public void borrar(nodoSimple x, nodoSimple y){
+        if (x == null){
+        JOptionPane.showMessageDialog(null,"dato no existe");
+        return;
+        }
+        desconectar(x, y);
     }
 
-    public void borrar(nodoSimple x, nodoSimple y){}
-
-    public void desconectar(nodoSimple x, nodoSimple y){}
+    public void desconectar(nodoSimple x, nodoSimple y){
+         if (x != primero) {
+             y.asignaLiga(x.retornaLiga());
+             if (x == ultimo) {
+                 ultimo = y;
+             } else
+                 primero = primero.retornaLiga();
+             if (primero == null) {
+                 ultimo = null;
+             }
+         }
+    }
 
     public void ordenaAscendentemente(){}
 
