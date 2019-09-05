@@ -3,8 +3,8 @@ import javax.swing.*;
 //Clase Lista Simplemente Ligada Circular
 public class LSLC {
     //Privado
-    private nodoSimple primero;
-    private nodoSimple ultimo;
+    private static nodoSimple primero;
+    private static nodoSimple ultimo;
 
     //Público
 
@@ -29,7 +29,7 @@ public class LSLC {
      nodoSimple p;
      p=primero;
      nodoSimple y;
-     y=null;
+     y=ultimo;
      while (p!=null && !p.equals(x)){
          y=p;
          p=p.retornaLiga();
@@ -41,80 +41,86 @@ public class LSLC {
         return (x == primero);
     }
 
-    public void recorre(){
+    public void recorre() {
         nodoSimple p;
         p = primerNodo();
-        do {
-            JOptionPane.showMessageDialog(null,p.retornaDato());
-            p=p.retornaLiga();
-        }while (!finDeRecorrido(p));
+            do {
+                JOptionPane.showMessageDialog(null, p.retornaDato());
+                p = p.retornaLiga();
+            } while (!finDeRecorrido(p));
+        }
+
+    public nodoSimple buscarDato(int d){
+        nodoSimple p =primero;
+        do{
+            if (d == p.retornaDato()){return p;}
+                p = p.retornaLiga();
+        }while(p != primero);
+        return null;
     }
 
-    public nodoSimple buscaDondeInsertar(String d){
-        nodoSimple y;
-        nodoSimple p;
-        p = primerNodo();
-        y = ultimoNodo();
-        while ((!finDeRecorrido(p)) && (p.retornaDato().equals(d))){
-            y = p;
-            p = p.retornaLiga();
-        }
-        return y;
-    }
-
-    public void insertar(String d, nodoSimple y){
-        nodoSimple x;
-        x = new nodoSimple(d);
-        conectar(x, y);
-    }
-
-    public void conectar(nodoSimple X, nodoSimple Y){
-        if(Y!=null){
-            X.asignaLiga(Y.retornaLiga());
-            Y.asignaLiga(X);
-            if (Y==ultimo){
-                ultimo=X;
-            }
-            else{
-                X.asignaLiga(primero);
-                if (primero==null){
-                    ultimo=X;
-                }
-                primero=X;
-            }
-        }else{
-            primero=ultimo=X;
-        }
-    }
-    nodoSimple buscarDato(Object d) {
-        nodoSimple x;
-        x = primerNodo();;
-        while (!finDeRecorrido(x) && (x.retornaDato()!=d)) {
-            x = x.retornaLiga();
-        }
-         return (x);
-    }
     public void borrar(nodoSimple x, nodoSimple y){
         if (x == null){
-        JOptionPane.showMessageDialog(null,"dato no existe");
+        JOptionPane.showMessageDialog(null,"El dato no existe");
         return;
         }
-        desconectar(x, y);
+        if (!x.equals(primero)) {
+            JOptionPane.showMessageDialog(null,"El dato NO es el primero");
+            y.asignaLiga(x.retornaLiga());
+            if (x.equals(ultimo)) {
+                JOptionPane.showMessageDialog(null,"El dato es el ultimo");
+                ultimo = y;
+            }
+        } else
+            JOptionPane.showMessageDialog(null,"El dato es el primero");
+        if(!primero.equals(ultimo)) {
+            JOptionPane.showMessageDialog(null,"primero es diferente a null"+primero.retornaDato()+ultimo.retornaDato());
+            primero = primero.retornaLiga();
+            ultimo.asignaLiga(primero);
+        }
+           else {
+               primero = null;
+                JOptionPane.showMessageDialog(null,"primero es null");
+                ultimo = null;
+            }
+
     }
 
-    public void desconectar(nodoSimple x, nodoSimple y){
-         if (x != primero) {
-             y.asignaLiga(x.retornaLiga());
-             if (x == ultimo) {
-                 ultimo = y;
-             } else
-                 primero = primero.retornaLiga();
-             if (primero == null) {
-                 ultimo = null;
-             }
-         }
+    public void insertarAlFinal(int d){
+        nodoSimple x = new nodoSimple(d);
+        if (primero==null) {
+            JOptionPane.showMessageDialog(null,"la lista está vacia al inicio");
+            primero = x;
+            ultimo = primero;
+            ultimo.asignaLiga(x);
+
+        } else{
+            JOptionPane.showMessageDialog(null,"Se está asignando un segundo dato");
+            ultimo.asignaLiga(x);
+            x.asignaLiga(primero);
+            ultimo = x;
+        }
+    }
+    public void insertarAlInicio(int d){
+        nodoSimple x = new nodoSimple(d);
+        if (primero==null) {
+            primero = x;
+            ultimo = x;
+            ultimo.asignaLiga(x);
+        } else{
+            x.asignaLiga(x);
+            primero = x;
+            ultimo.asignaLiga(x);
+        }
+    }
+    public void insertarOrdenado(int d){
+
     }
 
     public void ordenaAscendentemente(){}
 
+    public void eliminarLista(){
+        primero=null;
+        ultimo=null;
+    }
 }

@@ -1,16 +1,16 @@
 public class nodoSimple {
 
     //Privado
-    private Object dato;
+    private int dato;
     private nodoSimple liga;
 
     //Público
-    public nodoSimple(Object dato){       //Constructor
+    public nodoSimple(int dato){       //Constructor
         this.dato=dato;
         liga = null;
     }
 
-    public Object retornaDato(){
+    public int retornaDato(){
         return dato;
     }                //Metodos de la clase nodo simple
 
@@ -18,7 +18,7 @@ public class nodoSimple {
         return liga;
     }
 
-    public void asignaDato(Object dato){
+    public void asignaDato(int dato){
         this.dato = dato;
     }
 
