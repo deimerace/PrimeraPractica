@@ -25,21 +25,29 @@ public class LSLC {
         return ultimo;
     }
 
-//TODO colocar nodoSimple, lo puse en void para que el programa no mandara error y poder ejecutarlo
-   /*TODO Kai
-   *public void anterior(nodoSimple x){ }
-   */
+   public nodoSimple anterior(nodoSimple x){
+     nodoSimple p;
+     p=primero;
+     nodoSimple y;
+     y=null;
+     while (p!=null && !p.equals(x)){
+         y=p;
+         p=p.retornaLiga();
+     }
+     return y;
+     }
+
     public boolean finDeRecorrido(nodoSimple x){
-        return x == primero;
+        return (x == primero);
     }
 
     public void recorre(){
         nodoSimple p;
         p = primerNodo();
-        while (!finDeRecorrido(p));{
+        do {
             JOptionPane.showMessageDialog(null,p.retornaDato());
             p=p.retornaLiga();
-        }
+        }while (!finDeRecorrido(p));
     }
 
     public nodoSimple buscaDondeInsertar(String d){
@@ -74,6 +82,8 @@ public class LSLC {
                 }
                 primero=X;
             }
+        }else{
+            primero=ultimo=X;
         }
     }
     nodoSimple buscarDato(Object d) {

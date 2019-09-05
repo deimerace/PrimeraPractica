@@ -2,6 +2,7 @@ import javax.swing.*;
 
 public class Principal {
     public static LSLC lista= new LSLC();
+    public static int c;
 
 
     public static void main(String[] args) {
@@ -19,6 +20,7 @@ public class Principal {
         switch (n) {
             //TODO Hacer el metodo de crear lista
             case 1://CREAR LISTA
+                 c=Integer.parseInt(JOptionPane.showInputDialog(null, "¿Como desea comenzar a crear la lista?\n"+"1.Insertantdo datos al final\n"+"2.Insertando datos al inico\n"+"3.Insertando datos ordenados descendentemente"));
                 break;
             case 2://COMPROBAR SI LA LISTA ESTÁ VACIA
                 if (lista.esVacia()) {
@@ -42,26 +44,30 @@ public class Principal {
                 JOptionPane.showMessageDialog(null,"La lista está vacia");
                 break;
             case 5://MOSTRAR LA LISTA
+                if(lista.esVacia()){
+                    JOptionPane.showMessageDialog(null, "La lista está vacia");
+                    break;
+                }
                 lista.recorre();
                 break;
             case 6://TODO INSERTAR NUEVO DATO EN LA LISTA
-                /* ESTA MALO, solo quería ver como funcionaba
-                nodoSimple x= lista.buscaDondeInsertar(JOptionPane.showInputDialog(null,"Que dato desea insertar?"));
-                nodoSimple y=new nodoSimple("x");
-                lista.conectar(x,y);
-                ESTA MALO, solo quería ver como funcionaba
-                */
+                 String  d=JOptionPane.showInputDialog(null,"Que dato desea insertar?");
+                nodoSimple x= lista.buscaDondeInsertar(d);
+                nodoSimple y=lista.anterior(x);
+                y = lista.anterior(x);
+                lista.insertar(d, y);
                 break;
             case 7: //TODo BUSCAR DATO EN LA LISTA
                 String datoABuscar=JOptionPane.showInputDialog(null,"Inserte el dato que desea buscar en la lista");
                 lista.buscaDondeInsertar(datoABuscar);
                 break;
             case 8: //TODO BORRAR UN DATO DE LA LISTA
-                /* ESTA MALO, solo quería ver como funcionaba
+
                 nodoSimple datoAborrar= lista.buscarDato(JOptionPane.showInputDialog(null,"¿Que dato desea borrar?"));
-                *nodoSimple datoABorrarY= new nodoSimple("a");
-                *lista.borrar(datoAborrar, datoABorrarY);
-                */
+                nodoSimple datoABorrarY;
+                datoABorrarY=lista.anterior(datoAborrar);
+                lista.borrar(datoAborrar, datoABorrarY);
+
                 break;
 
             case 9: //TODO ORDENAR ASCENDENTEMENTE LA LISTA
