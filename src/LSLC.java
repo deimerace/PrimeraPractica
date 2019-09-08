@@ -86,8 +86,12 @@ public class LSLC {
 
     }
 
-    public void insertarAlFinal(int d){
-        nodoSimple x = new nodoSimple(d);
+    public void insertarAlfinal(int d){
+        nodoSimple x;
+        x=new nodoSimple(d);
+        insertarAlFinal(x);
+    }
+    public void insertarAlFinal(nodoSimple x){
         if (primero==null) {
             JOptionPane.showMessageDialog(null,"la lista está vacia al inicio");
             primero = x;
@@ -114,9 +118,40 @@ public class LSLC {
         }
     }
     public void insertarOrdenado(int d){
-
+        nodoSimple y=buscaDondeInsertar(d);
+        insertar(d,y);
     }
-
+    public nodoSimple buscaDondeInsertar(int d){
+        nodoSimple p;
+        nodoSimple y;
+        p=primerNodo();
+        y=ultimo;
+        while (!finDeRecorrido(p) && p.retornaDato()<d){
+            y=p;
+            p=p.retornaLiga();
+        }
+        return y;
+    }
+    public void insertar(int d,nodoSimple y){
+        nodoSimple x;
+        x=new nodoSimple(d);
+        conectar(x,y);
+    }
+    public void conectar(nodoSimple x, nodoSimple y){
+        if(y!=null){
+            x.asignaLiga(y.retornaLiga());
+            y.asignaLiga(x);
+            if(y==ultimo){
+                ultimo=x;
+            }
+        } else{
+            x.asignaLiga(primero);
+            if (primero==null){
+                ultimo=x;
+            }
+            primero=x;
+        }
+    }
     public void ordenaAscendentemente(){}
 
     public void eliminarLista(){

@@ -68,7 +68,7 @@ public class Principal {
                 int  d=Integer.parseInt(JOptionPane.showInputDialog(null,"¿Qué dato desea insertar?"));
                 switch (c) {
                     case 1:
-                        lista.insertarAlFinal(d);
+                        lista.insertarAlfinal(d);
                     case 2:
                         lista.insertarAlInicio(d);
                         //TODO INSERTAR DATO ORDENADO DESCENDENTEMENTE

@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7642dde7-e741-42af-8114-468f5578cd4d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrimeraPractica/LSLC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrimeraPractica/LSLC.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrimeraPractica/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrimeraPractica/Principal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrimeraPractica/nodoSimple.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrimeraPractica/nodoSimple.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LSLC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LSLC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nodoSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nodoSimple.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +52,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Practica1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -108,7 +107,9 @@
       <workItem from="1567266152807" duration="6309000" />
       <workItem from="1567518513472" duration="3671000" />
       <workItem from="1567694950537" duration="223000" />
-      <workItem from="1567712617133" duration="12773000" />
+      <workItem from="1567712617133" duration="12775000" />
+      <workItem from="1567980763325" duration="1362000" />
+      <workItem from="1567983002663" duration="4073000" />
     </task>
     <servers />
   </component>
