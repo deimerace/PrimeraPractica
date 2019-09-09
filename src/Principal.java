@@ -30,7 +30,6 @@ public class Principal {
 
     public static void operacionARealizar(int n){
         switch (n) {
-            //TODO Hacer el metodo de crear lista
             case 1://CREAR LISTA
                 do {
                     if (c != 1 || c != 2 || c != 3) {

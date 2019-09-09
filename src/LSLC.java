@@ -24,7 +24,7 @@ public class LSLC {
     public nodoSimple ultimoNodo(){
         return ultimo;
     }
-    //TODO bug: Cuando no encuentra el dato,se queda en este ciclo.
+    
    public nodoSimple anterior(nodoSimple x){
      nodoSimple p;
      p=primero;
