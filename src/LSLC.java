@@ -95,8 +95,8 @@ public class LSLC {
         if (primero==null) {
             JOptionPane.showMessageDialog(null,"la lista está vacia al inicio");
             primero = x;
-            ultimo = primero;
-            ultimo.asignaLiga(x);
+            ultimo = x;
+            ultimo.asignaLiga(primero);
 
         } else{
             JOptionPane.showMessageDialog(null,"Se está asignando un segundo dato");
@@ -110,11 +110,11 @@ public class LSLC {
         if (primero==null) {
             primero = x;
             ultimo = x;
-            ultimo.asignaLiga(x);
+            ultimo.asignaLiga(primero);
         } else{
-            x.asignaLiga(x);
+            x.asignaLiga(primero);
             primero = x;
-            ultimo.asignaLiga(x);
+            ultimo.asignaLiga(primero);
         }
     }
     public void insertarOrdenado(int d){
@@ -125,11 +125,12 @@ public class LSLC {
         nodoSimple p;
         nodoSimple y;
         p=primerNodo();
-        y=ultimo;
-        while (!finDeRecorrido(p) && p.retornaDato()<d){
-            y=p;
-            p=p.retornaLiga();
+        if (p!=null){
+            do{
+                p=p.retornaLiga();
+            }while (!finDeRecorrido(p) && p.retornaDato()<d);
         }
+        y=anterior(p);
         return y;
     }
     public void insertar(int d,nodoSimple y){
