@@ -24,7 +24,7 @@ public class LSLC {
     public nodoSimple ultimoNodo(){
         return ultimo;
     }
-
+    //TODO bug: Cuando no encuentra el dato,se queda en este ciclo.
    public nodoSimple anterior(nodoSimple x){
      nodoSimple p;
      p=primero;
@@ -33,6 +33,7 @@ public class LSLC {
      while (p!=null && !p.equals(x)){
          y=p;
          p=p.retornaLiga();
+         System.out.println("Estoy en un ciclo xD");
      }
      return y;
      }
@@ -51,19 +52,18 @@ public class LSLC {
         }
 
     public nodoSimple buscarDato(int d){
-        nodoSimple p =primero;
+        nodoSimple p;
+        p=primerNodo();
         do{
-            if (d == p.retornaDato()){return p;}
+            if (d == p.retornaDato()){
+                return p;
+            }
                 p = p.retornaLiga();
-        }while(p != primero);
+        }while(!finDeRecorrido(p));
         return null;
     }
 
     public void borrar(nodoSimple x, nodoSimple y){
-        if (x == null){
-        JOptionPane.showMessageDialog(null,"El dato no existe");
-        return;
-        }
         if (!x.equals(primero)) {
             y.asignaLiga(x.retornaLiga());
             if (x.equals(ultimo)) {
