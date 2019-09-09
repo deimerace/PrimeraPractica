@@ -65,22 +65,18 @@ public class LSLC {
         return;
         }
         if (!x.equals(primero)) {
-            JOptionPane.showMessageDialog(null,"El dato NO es el primero");
             y.asignaLiga(x.retornaLiga());
             if (x.equals(ultimo)) {
-                JOptionPane.showMessageDialog(null,"El dato es el ultimo");
                 ultimo = y;
             }
         } else
-            JOptionPane.showMessageDialog(null,"El dato es el primero");
         if(!primero.equals(ultimo)) {
-            JOptionPane.showMessageDialog(null,"primero es diferente a null"+primero.retornaDato()+ultimo.retornaDato());
+
             primero = primero.retornaLiga();
             ultimo.asignaLiga(primero);
         }
            else {
                primero = null;
-                JOptionPane.showMessageDialog(null,"primero es null");
                 ultimo = null;
             }
 
@@ -93,13 +89,11 @@ public class LSLC {
     }
     public void insertarAlFinal(nodoSimple x){
         if (primero==null) {
-            JOptionPane.showMessageDialog(null,"la lista está vacia al inicio");
             primero = x;
             ultimo = x;
             ultimo.asignaLiga(primero);
 
         } else{
-            JOptionPane.showMessageDialog(null,"Se está asignando un segundo dato");
             ultimo.asignaLiga(x);
             x.asignaLiga(primero);
             ultimo = x;

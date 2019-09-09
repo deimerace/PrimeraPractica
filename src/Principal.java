@@ -69,11 +69,13 @@ public class Principal {
                 switch (c) {
                     case 1:
                         lista.insertarAlfinal(d);
+                        break;
                     case 2:
                         lista.insertarAlInicio(d);
-                        //TODO INSERTAR DATO ORDENADO DESCENDENTEMENTE
+                        break;
                     case 3:
                         lista.insertarOrdenado(d);
+                        break;
                 }
 
                 break;

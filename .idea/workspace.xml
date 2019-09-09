@@ -4,7 +4,9 @@
     <list default="true" id="7642dde7-e741-42af-8114-468f5578cd4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrimeraPractica/LSLC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrimeraPractica/LSLC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrimeraPractica/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrimeraPractica/Principal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LSLC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LSLC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Principal.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +108,7 @@
       <workItem from="1567694950537" duration="223000" />
       <workItem from="1567712617133" duration="12775000" />
       <workItem from="1567980763325" duration="1362000" />
-      <workItem from="1567983002663" duration="5180000" />
+      <workItem from="1567983002663" duration="5672000" />
     </task>
     <servers />
   </component>
