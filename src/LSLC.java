@@ -24,7 +24,7 @@ public class LSLC {
     public nodoSimple ultimoNodo(){
         return ultimo;
     }
-    
+
    public nodoSimple anterior(nodoSimple x){
      nodoSimple p;
      p=primero;
@@ -33,7 +33,6 @@ public class LSLC {
      while (p!=null && !p.equals(x)){
          y=p;
          p=p.retornaLiga();
-         System.out.println("Estoy en un ciclo xD");
      }
      return y;
      }
@@ -116,14 +115,20 @@ public class LSLC {
         insertar(d,y);
     }
     public nodoSimple buscaDondeInsertar(int d){
+        if(ultimo==null || d<=ultimo.retornaDato()){
+            insertarAlfinal(d);
+            return null;
+        }
+        if(d>primero.retornaDato()){
+            insertarAlInicio(d);
+            return null;
+        }
         nodoSimple p;
         nodoSimple y;
         p=primerNodo();
-        if (p!=null){
             do{
                 p=p.retornaLiga();
-            }while (!finDeRecorrido(p) && p.retornaDato()<d);
-        }
+            }while (!finDeRecorrido(p) && p.retornaDato()>d);
         y=anterior(p);
         return y;
     }
@@ -139,12 +144,6 @@ public class LSLC {
             if(y==ultimo){
                 ultimo=x;
             }
-        } else{
-            x.asignaLiga(primero);
-            if (primero==null){
-                ultimo=x;
-            }
-            primero=x;
         }
     }
     public void ordenaAscendentemente(){}
